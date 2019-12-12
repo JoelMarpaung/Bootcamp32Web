@@ -1,0 +1,13 @@
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\bin\Debug\Data.dll.config
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\bin\Debug\Data.dll
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\bin\Debug\Data.pdb
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\bin\Debug\EntityFramework.dll
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\bin\Debug\EntityFramework.xml
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\obj\Debug\Data.Migrations.AddSupplierModel.resources
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\obj\Debug\Data.csproj.GenerateResource.cache
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\obj\Debug\Data.csproj.CopyComplete
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\obj\Debug\Data.dll
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\obj\Debug\Data.pdb
