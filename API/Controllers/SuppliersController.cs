@@ -1,6 +1,7 @@
 ﻿using Data.Model;
 using Data.Repository;
 using Data.Repository.Interface;
+using Data.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,29 +17,31 @@ namespace API.Controllers
         // GET: api/Suppliers
         public IEnumerable<Supplier> Get()
         {
-            var data = supplier.Get();
-            return data;
+            return supplier.Get();
         }
 
         // GET: api/Suppliers/5
-        public string Get(int id)
+        public Supplier Get(int id)
         {
-            return "value";
+            return supplier.Get(id);
         }
 
         // POST: api/Suppliers
-        public void Post([FromBody]string value)
+        public int Post(SupplierVM supplierVM)
         {
+            return supplier.Create(supplierVM);
         }
 
         // PUT: api/Suppliers/5
-        public void Put(int id, [FromBody]string value)
+        public int Put(int id, SupplierVM supplierVM)
         {
+            return supplier.Update(id, supplierVM);
         }
 
         // DELETE: api/Suppliers/5
-        public void Delete(int id)
+        public int Delete(int id)
         {
+            return supplier.Delete(id);
         }
     }
 }
