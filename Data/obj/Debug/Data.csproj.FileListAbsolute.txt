@@ -11,3 +11,4 @@ C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\obj\Debug\Data.csproj.CopyComplete
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\obj\Debug\Data.dll
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\obj\Debug\Data.pdb
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Data\obj\Debug\Data.csprojAssemblyReference.cache

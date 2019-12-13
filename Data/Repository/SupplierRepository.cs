@@ -17,9 +17,9 @@ namespace Data.Repository
         {
             var supplier = myContext.Suppliers.Where(s =>
             s.Name.ToLower() == supplierVM.Name.ToLower()
-            || s.Email.ToLower() == supplierVM.Email.ToLower());
+            || s.Email.ToLower() == supplierVM.Email.ToLower()).FirstOrDefault();
             int result = 0;
-            if (supplier != null)
+            if (supplier == null)
             {
                 var push = new Supplier(supplierVM);
                 myContext.Suppliers.Add(push);
@@ -30,31 +30,37 @@ namespace Data.Repository
 
         public int Delete(int id)
         {
-            var delete = myContext.Suppliers.Find(id);
-            delete.Delete();
+            var delete = myContext.Suppliers.Where(s => s.IsDelete == false && s.Id == id).FirstOrDefault();
+            if (delete != null)
+            {
+                delete.Delete();
+            }
             return myContext.SaveChanges();
         }
 
         public IEnumerable<Supplier> Get()
         {
-            return myContext.Suppliers.ToList();
+            return myContext.Suppliers.Where(s=>s.IsDelete==false).ToList();
         }
 
         public Supplier Get(int id)
         {
-            return myContext.Suppliers.Find(id);
+            return myContext.Suppliers.Where(s => s.IsDelete == false && s.Id == id).FirstOrDefault();
         }
 
         public int Update(int id, SupplierVM supplierVM)
         {
-            var supplier = myContext.Suppliers.Where(s =>
+            var supplier = myContext.Suppliers.Where(s => s.Id != id &&
             s.Name.ToLower() == supplierVM.Name.ToLower()
-            || s.Email.ToLower() == supplierVM.Email.ToLower());
+            || s.Email.ToLower() == supplierVM.Email.ToLower()).FirstOrDefault();
             int result = 0;
-            if (supplier != null)
+            if (supplier == null)
             {
-                var update = myContext.Suppliers.Find(id);
-                update.Update(supplierVM);
+                var update = myContext.Suppliers.Where(s => s.IsDelete == false && s.Id == id).FirstOrDefault();
+                if (update != null)
+                {
+                    update.Update(supplierVM);
+                }
                 result = myContext.SaveChanges();
             }
             return result;
