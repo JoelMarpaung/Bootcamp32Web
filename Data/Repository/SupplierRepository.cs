@@ -50,9 +50,9 @@ namespace Data.Repository
 
         public int Update(int id, SupplierVM supplierVM)
         {
-            var supplier = myContext.Suppliers.Where(s => s.Id != id &&
+            var supplier = myContext.Suppliers.Where(s =>
             s.Name.ToLower() == supplierVM.Name.ToLower()
-            || s.Email.ToLower() == supplierVM.Email.ToLower()).FirstOrDefault();
+            || s.Email.ToLower() == supplierVM.Email.ToLower() && s.Id != id).FirstOrDefault();
             int result = 0;
             if (supplier == null)
             {

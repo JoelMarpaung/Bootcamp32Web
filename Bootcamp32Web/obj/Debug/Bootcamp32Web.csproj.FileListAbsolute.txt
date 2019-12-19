@@ -48,6 +48,7 @@ C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootc
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\roslyn\VBCSCompiler.exe
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\Antlr3.Runtime.dll
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\Data.dll
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\EntityFramework.dll
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\EntityFramework.SqlServer.dll
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\Microsoft.AspNet.Identity.Core.dll
@@ -78,6 +79,8 @@ C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootc
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\System.Web.WebPages.dll
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\System.Web.WebPages.Razor.dll
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\WebGrease.dll
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\Data.pdb
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\Data.dll.config
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\EntityFramework.xml
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\EntityFramework.SqlServer.xml
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\System.Net.Http.Formatting.xml
@@ -106,6 +109,7 @@ C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootc
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\obj\Debug\Bootcamp32Web.csprojAssemblyReference.cache
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\obj\Debug\Bootcamp32Web.csproj.CoreCompileInputs.cache
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\obj\Debug\Bootcamp32Web.csproj.CopyComplete
 C:\Users\joel.marpaung\Documents\Visual Studio 2017\Projects\Bootcamp32Web\Bootcamp32Web\obj\Debug\Bootcamp32Web.dll

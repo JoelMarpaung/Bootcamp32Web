@@ -11,7 +11,7 @@
 
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js "></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 
 <h2>Index</h2>
@@ -19,7 +19,7 @@
 @*<p>
         @Html.ActionLink("Create New", "Create")
     </p>*@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#itemModal">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#itemModal" onclick="ClearScreen();">
     Create New
 </button>
 <br />
@@ -48,27 +48,27 @@
     </thead>
     <tbody class="tbody">
         @*@foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.stock)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TB_M_Supplier.name)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Are you sure want to delete this item?');" })
-                </td>
-            </tr>
-        }*@
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.stock)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TB_M_Supplier.name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Are you sure want to delete this item?');" })
+                    </td>
+                </tr>
+            }*@
     </tbody>
 </table>
 
@@ -90,13 +90,14 @@
                 <div class="modal-body">
                     <div class="form-horizontal">
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <input type="text" id="id" hidden disabled />
                         <div class="form-group">
                             <label for="name" class="control-label col-md-2">Name</label>
                             @*@Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })*@
                             <div class="col-md-10">
-                                <input type="text" name="name" class="form-control" />
+                                <input type="text" id="name" class="form-control" />
                                 @*@Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })*@
+                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })*@
                             </div>
                         </div>
 
@@ -104,9 +105,9 @@
                             <label for="price" class="control-label col-md-2">Price</label>
                             @*@Html.LabelFor(model => model.price, htmlAttributes: new { @class = "control-label col-md-2" })*@
                             <div class="col-md-10">
-                                <input type="number" name="price" class="form-control" />
+                                <input type="number" id="price" class="form-control" min="0" />
                                 @*@Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })*@
+                @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })*@
                             </div>
                         </div>
 
@@ -114,23 +115,24 @@
                             <label for="stock" class="control-label col-md-2">Stock</label>
                             @*@Html.LabelFor(model => model.stock, htmlAttributes: new { @class = "control-label col-md-2" })*@
                             <div class="col-md-10">
-                                <input type="number" name="stock" class="form-control" />
+                                <input type="number" id="stock" class="form-control" min="0" />
                                 @*@Html.EditorFor(model => model.stock, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.stock, "", new { @class = "text-danger" })*@
+                @Html.ValidationMessageFor(model => model.stock, "", new { @class = "text-danger" })*@
                             </div>
                         </div>
-
+                        
                         <div class="form-group">
                             <label for="Supplier_Id" class="control-label col-md-2">Supplier</label>
+                            <input type="text" id="Supp_Id" hidden disabled />
                             @*@Html.LabelFor(model => model.Supplier_Id, "Supplier", htmlAttributes: new { @class = "control-label col-md-2" })*@
                             <div class="col-md-10">
                                 @*@Html.DropDownList("Supplier_Id", new SelectList(ViewBag.Supplier, "Value", "Text"), htmlAttributes: new { @class = "form-control" })*@
 
-                                <select name="Supplier_Id" class="form-control">
-                                    @foreach (var sup in ViewBag.Supplier)
-                                    {
-                                        <option value=@sup.Id>@sup.name</option>
-                                    }
+                                <select id="Supplier_Id" class="form-control">
+                                    @*@foreach (var sup in ViewBag.Supplier)
+                {
+                    <option value=@sup.Id>@sup.name</option>
+                }*@
                                 </select>
                                 @*@Html.ValidationMessageFor(model => model.Supplier_Id, "", new { @class = "text-danger" })*@
                             </div>
@@ -138,8 +140,8 @@
 
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
-                                @*<input type="submit" value="Create" class="btn btn-success" />*@
-                                <input type="button" value="Create" class="btn btn-success" onclick="Create()" />
+                                <button type="button" class="btn btn-primary" id="CreateItem" onclick="Create();">Create</button>
+                                <button type="button" class="btn btn-primary" id="UpdateItem" style="display:none;" onclick="Update();">Update</button>
                             </div>
                         </div>
                     </div>
@@ -154,67 +156,4 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        loadData();
-    });
-    $('#dataGrid').DataTable({
-        "columnDefs": [
-            { "orderable": false, "targets": 4 }
-        ]
-    });
-
-    function loadData() {
-        $.ajax({
-            url: "/Items/List",
-            type: "GET",
-            contentType: "application/json;charset=utf-8",
-            dataType: "json",
-            success: function (result) {
-                var html = '';
-                const obj = JSON.parse(result);
-                $.each(obj, function (key, item) {
-                    html += '<tr>';
-                    html += '<td>' + item.name + '</td>';
-                    html += '<td>' + item.price + '</td>';
-                    html += '<td>' + item.stock + '</td>';
-                    html += '<td>' + item.TB_M_Supplier.name + '</td>';
-                    //html += '<td>' + "test" + '</td>';
-                    //html += '<td><a href="#" onclick="return getbyID(' + item.Id + ')">Edit</a> | <a href="#" onclick="Delele(' + item.Id + ')">Delete</a></td>';
-                    html += '<td>test</td>'
-                    html += '</tr>';
-                });
-                $('.tbody').html(html);
-            },
-            error: function (errormessage) {
-                console.log(errormessage.responseText);
-            }
-        });
-    }  
-
-    function Create() {
-        var itemObj = {
-            name: $('#name').val(),
-            price: $('#price').val(),
-            stock: $('#stock').val(),
-            Supplier_Id: $('#Supplier_Id').val()
-        };
-        $.ajax({
-            url: "/Items/Create",
-            data: JSON.stringify(itemObj),
-            type: "POST",
-            contentType: "application/json;charset=utf-8",
-            dataType: "json",
-            success: function (result) {
-                $('#itemModal').modal('hide');
-                //var table = $('#dataGrid').dataTable({
-                //    ajax: result
-                //});
-                loadData();
-            },
-            error: function (errormessage) {
-                alert(errormessage.responseText);
-            }
-        });
-    }
-</script> 
+<script src="~/Scripts/Item.js"></script> 

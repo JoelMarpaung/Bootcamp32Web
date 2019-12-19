@@ -1,45 +1,117 @@
-﻿@model IEnumerable<Bootcamp32Web.Models.TB_M_Supplier>
+﻿@*@model IEnumerable<Bootcamp32Web.Models.TB_M_Supplier>*@
 
 @{
     ViewBag.Title = "Index";
 }
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/jq-3.3.1/dt-1.10.20/datatables.min.css" />
 
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs/jq-3.3.1/dt-1.10.20/datatables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create",null,new {@class = "btn brn-primary" })
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.createDate)
-        </th>
-        <th></th>
-    </tr>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#supplierModal" onclick="ClearScreen();">
+    Create New
+</button>
+<br />
+<br />
+<table id="dataGrid" class="table table-striped table-bordered dt-responsive nowrap">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.name)*@
+                Name
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.email)*@
+                Email
+            </th>
+            @*<th>*@
+            @*@Html.DisplayNameFor(model => model.createDate)*@
+            Create Date
+            @*</th>*@
+            <th></th>
+        </tr>
+    </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.createDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    <tbody class="tbody">
+        @*@foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.createDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }*@
+    </tbody>
 
 </table>
+
+<div class="modal fade" id="supplierModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                @*<h4 class="modal-title">Create new Supplier</h4>*@
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <input type="text" id="id" hidden disabled/>
+                        <div class="form-group">
+                            <label for="name" class="control-label col-md-2">Name</label>
+                            @*@Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                <input type="text" id="name" class="form-control" />
+                                @*@Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="control-label col-md-2">Email</label>
+                            @*@Html.LabelFor(model => model.price, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <div class="col-md-10">
+                                <input type="email" id="email" class="form-control" />
+                                @*@Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="button" class="btn btn-primary" id="CreateSupplier" onclick="Create();">Create</button>
+                                <button type="button" class="btn btn-primary" id="UpdateSupplier" style="display:none;" onclick="Update();">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Supplier.js"></script>

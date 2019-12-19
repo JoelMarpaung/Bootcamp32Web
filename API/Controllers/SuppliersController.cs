@@ -37,10 +37,14 @@ namespace API.Controllers
         }
 
         // POST: api/Suppliers
-        public int Post(SupplierVM supplierVM)
+        public HttpResponseMessage Post(SupplierVM supplierVM)
         {
+            if (supplierService.Create(supplierVM)==0)
+            {
+                return new HttpResponseMessage(HttpStatusCode.InternalServerError);
+            }
             //return supplier.Create(supplierVM);
-            return supplierService.Create(supplierVM);
+            return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
         // PUT: api/Suppliers/5
